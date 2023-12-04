@@ -147,5 +147,5 @@ def gen_3D_mesh(
         gmsh.write(save_path)
 
     # Save and close
-
+    print(surf_list)
     gmsh.finalize()

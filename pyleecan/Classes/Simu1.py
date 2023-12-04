@@ -67,7 +67,7 @@ class Simu1(Simulation):
         init_dict=None,
         init_str=None,
     ):
-        """Constructor of the class. Can be use in three ways :
+        """Constructor of the class. Can be used in three ways :
         - __init__ (arg1 = 1, arg3 = 5) every parameters have name and default values
             for pyleecan type, -1 will call the default constructor
         - __init__ (init_dict = d) d must be a dictionary with property names as keys

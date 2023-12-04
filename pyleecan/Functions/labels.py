@@ -71,6 +71,14 @@ SBS_BR_LAB = "sliding_sideline_" + BOT_LAB + "_" + RIGHT_LAB
 SBS_BL_LAB = "sliding_sideline_" + BOT_LAB + "_" + LEFT_LAB
 SBR_B_LAB = "sliding_radius_" + BOT_LAB
 SBR_T_LAB = "sliding_radius_" + TOP_LAB
+# # --- MovingBand dict ---
+# MB_LUR1 = "moving_band_LuR1"
+# MB_LUR2 = "moving_band_LuR2"
+# MB_STLU1 = "moving_band_StLu1"
+# MB_STLU2 = "moving_band_StLu2"
+# MB = "moving_band_itself"
+# # -----------------------
+
 # Airgap  BC properties
 AS_TR_LAB = "airgap_sideline_" + TOP_LAB + "_" + RIGHT_LAB
 AS_TL_LAB = "airgap_sideline_" + TOP_LAB + "_" + LEFT_LAB

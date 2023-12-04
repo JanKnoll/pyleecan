@@ -28,6 +28,13 @@ from ...Functions.labels import (
     AS_BL_LAB,
     AR_B_LAB,
     AR_T_LAB,
+    # # --- MovingBand ---
+    # MB_LUR1,
+    # MB_LUR2,
+    # MB_STLU1,
+    # MB_STLU2,
+    # MB
+    # # ------------------
 )
 
 
@@ -65,7 +72,8 @@ def get_sliding_band(sym, machine):
     Rgap_mag_ext = lam_ext.Rint
     Sor = lam_ext.Rext
     Wgap_mec = Rgap_mec_ext - Rgap_mec_int
-    W_sb = Wgap_mec / 4  # Width sliding band
+    # W_sb = Wgap_mec / 5  # Width moving band
+    W_sb = Wgap_mec / 4  # Width sliding band **ORIGINAL**
     tol = 0.1e-3  # Tolerance
     max_radius_Airgap_ext = Rgap_mec_ext + wedge_height + tol
     min_radius_Airgap_int = Rgap_mec_int - tol
@@ -167,6 +175,65 @@ def get_sliding_band(sym, machine):
 
     surf_list = list()
     if sym == 1:  # Complete machine
+        # # TODO: Sliding Band Full Machine no implemented yet.
+        # # LuR1 - LuftspaltRotor1
+        # surf_list.append(
+        #     Circle(
+        #         center=0,
+        #         radius=Rgap_mec_int + W_sb,
+        #         # label=lab_int + "_" + AIRGAP_LAB + BOT_LAB,
+        #         label = lab_int + "LuR1",
+        #         point_ref=(Rgap_mec_int + W_sb / 2) * exp(1j * pi / 2),
+        #         prop_dict={BOUNDARY_PROP_LAB: MB_LUR1},
+        #     )
+        # )
+        # # LuR2 - LuftspaltRotor2
+        # surf_list.append(
+        #     Circle(
+        #         center=0,
+        #         radius=Rgap_mec_int + 2 * W_sb,
+        #         # label=NO_LAM_LAB + "_" + SLID_LAB,
+        #         label = lab_int + "LuR2",
+        #         point_ref=(Rgap_mec_ext - W_sb / 2) * exp(1j * pi / 2),
+        #         prop_dict={BOUNDARY_PROP_LAB: MB_LUR2},
+        #     )
+        # )
+        # # MovingBand
+        # surf_list.append(
+        #     Circle(
+        #         center=0,
+        #         radius=Rgap_mec_int + 3 * W_sb,
+        #         label=lab_ext + "_" + AIRGAP_LAB + TOP_LAB,
+        #         point_ref=(Rgap_mec_ext - W_sb / 2) * exp(1j * pi / 2),
+        #         prop_dict={BOUNDARY_PROP_LAB: AR_B_LAB},
+        #     )
+        # )
+        # # StLu2 - StatorLuftspalt2
+        # surf_list.append(
+        #     Circle(
+        #         center=0,
+        #         radius=Rgap_mec_int + 4 * W_sb,
+        #         # label=lab_ext + "_" + AIRGAP_LAB + TOP_LAB,
+        #         label = lab_int + "StLu2",
+        #         point_ref=(Rgap_mec_ext - W_sb / 2) * exp(1j * pi / 2),
+        #         prop_dict={BOUNDARY_PROP_LAB: SBR_B_LAB},
+        #     )
+        # )
+        # # StLu1 - StatorLuftspalt1
+        # surf_list.append(
+        #     Circle(
+        #         center=0,
+        #         radius=Rgap_mec_int + 5 * W_sb,
+        #         # label=lab_ext + "_" + AIRGAP_LAB + TOP_LAB,
+        #         label = lab_int + "StLu1",
+        #         point_ref=(Rgap_mec_ext - W_sb / 2) * exp(1j * pi / 2),
+        #         prop_dict={BOUNDARY_PROP_LAB: AR_T_LAB},
+        #     )
+        # )
+        
+        # ----------------------
+        # --- Original Code: ---
+        
         # TODO: Sliding Band Full Machine no implemented yet.
         # Internal AirGap
         surf_list.append(
