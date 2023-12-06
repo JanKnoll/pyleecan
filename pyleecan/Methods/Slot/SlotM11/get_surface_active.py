@@ -51,7 +51,7 @@ def get_surface_active(self, alpha=0, delta=0):
             Arc1(ZM2, ZM3, (Rbo - self.H0 + self.H1), is_trigo_direction=True)
         )
     # left magnet side
-    if self.W0 == self.Wmag and self.H0 < self.Hmag and self.H0 > 0 and self.H0 != self.Hmag:
+    if self.W0 == self.W1 and self.H0 < self.H1 and self.H0 > 0 and self.H0 != self.H1:
         curve_list.append(Segment(ZM3, Z4))
         curve_list.append(Segment(Z4, ZM4))
 
