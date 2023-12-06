@@ -33,13 +33,11 @@ def _comp_point_coordinate(self):
     point_dict["Z2"] = Z2
     point_dict["ZM1"] = ZM1
     point_dict["ZM2"] = ZM2
-    # point_dict["ZMH1"] = ZMH1
     # symetry
 
     point_dict["Z3"] = Z2.conjugate()
     point_dict["Z4"] = Z1.conjugate()
     point_dict["ZM3"] = ZM2.conjugate()
     point_dict["ZM4"] = ZM1.conjugate()
-    # point_dict["ZMH2"] = ZMH1.conjugate()
 
     return point_dict

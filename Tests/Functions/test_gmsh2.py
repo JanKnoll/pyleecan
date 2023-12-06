@@ -14,22 +14,6 @@ from pyleecan.Methods.Simulation.MagElmer import (
     MagElmer_BP_dict,
 )
 
-from pyleecan.Classes.MachineIPMSM import MachineIPMSM  
-from pyleecan.Functions.GMSH.get_sliding_band import get_sliding_band
-from pyleecan.Functions.GMSH import InputError
-from pyleecan.Functions.GMSH.get_sliding_band import get_sliding_band
-from pyleecan.Functions.GMSH.get_air_box import get_air_box
-from pyleecan.Functions.GMSH.get_boundary_condition import get_boundary_condition
-from pyleecan.Functions.GMSH.draw_surf_line import draw_surf_line
-import sys
-import gmsh
-import cmath
-
-from os import replace
-from os.path import splitext
-
-from numpy import pi
-
 try:
     from pyleecan.Functions.GMSH.draw_GMSH import draw_GMSH
 except:
@@ -77,7 +61,7 @@ def test_gmsh_ipm():
     # Create the Simulation
     mySimu = Simu1(name="test_gmsh_ipm", machine=Toyota_Prius)
     myResults = Output(simu=mySimu)
-    
+
     gmsh_dict = draw_GMSH(
         output=myResults,
         sym=8,
@@ -89,26 +73,10 @@ def test_gmsh_ipm():
         is_airbox=True,
         path_save=join(save_path, "GSMH_model_ipm.msh"),
     )
-    # rotorSurfTest = myResults.simu.machine.rotor.build_geometry(sym=8, alpha=0)
-    # statorSurfTest = myResults.simu.machine.stator.build_geometry(sym=8, alpha=0)
-    test2 = Toyota_Prius.rotor.build_geometry(sym=8, alpha = 0)
-    
-    # print("test2")
-    # print(test2)
-    
-    for i in range(0,len(test2)):
-        print(f"rotorSurfTest[{i}]")
-        print(test2[i])
-    # for i in range(0,len(rotorSurfTest)):
-    #     print(f"rotorSurfTest[{i}]")
-    #     print(rotorSurfTest[i])
-    
-    # for i in range(0,len(statorSurfTest)):
-    #     print(f"statorSurfTest[{i}]")
-    #     print(statorSurfTest[i])
-        
+
     with open("test_gmsh_ipm.json", "w") as fw:
         json.dump(gmsh_dict, fw, default=encode_complex, indent=4)
+
     return gmsh_dict
 
 
@@ -152,7 +120,7 @@ def test_gmsh_spm():
 
     return gmsh_dict
 
-# -- Benchmark --
+
 @pytest.mark.long_5s
 @pytest.mark.GMSH
 # @pytest.mark.SPMSM
@@ -200,8 +168,5 @@ def encode_complex(z):
 
 if __name__ == "__main__":
     # gmsh_dict = test_gmsh_ipm()
-    gmsh_dict = test_gmsh_spm()
-    # gmsh_dict = test_gmsh_benchmark()
-
-# test_gmsh_ipm()
-test_gmsh_spm()
+    # gmsh_dict = test_gmsh_spm()
+    gmsh_dict = test_gmsh_benchmark()

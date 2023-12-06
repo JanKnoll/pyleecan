@@ -1,8 +1,7 @@
 from os import remove, getcwd
 from os.path import isfile, join
 import pytest
-from pyleecan.Functions.GMSH.draw_GMSH import draw_GMSH
- 
+
 try:
     from pyleecan.Functions.GMSH.gen_3D_mesh import gen_3D_mesh
 except:
@@ -41,10 +40,3 @@ def test_slot_10():
         Nlayer=20,
         display=False,
     )
-    draw_GMSH(
-        output=stator,
-        sym = 1,
-        boundary_prop=
-    )
-    
-test_slot_10()

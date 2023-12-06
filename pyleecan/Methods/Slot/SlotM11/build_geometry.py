@@ -35,7 +35,7 @@ def build_geometry(self):
 
     # Right side of slot
     if self.H0 > 0:
-        if self.Wmag == self.W0 and self.Hmag < self.H0:
+        if self.W1 == self.W0 and self.H1 < self.H0:
             curve_list.append(Segment(Z1, ZM2))
             curve_list.append(Segment(ZM2, Z2))
         else:
@@ -43,7 +43,7 @@ def build_geometry(self):
 
     # Bottom of slot
     if self.is_outwards():
-        if self.H0 > 0 and self.Wmag != self.W0:
+        if self.H0 > 0 and self.W1 != self.W0:
             curve_list.append(Arc1(Z2, ZM1, Rbo + self.H0, is_trigo_direction=True))
             curve_list.append(Arc1(ZM1, ZM4, Rbo + self.H0, is_trigo_direction=True))
             curve_list.append(Arc1(ZM4, Z3, Rbo + self.H0, is_trigo_direction=True))
@@ -51,7 +51,7 @@ def build_geometry(self):
         else:
             curve_list.append(Arc1(Z2, Z3, Rbo + self.H0, is_trigo_direction=True))
     else:
-        if self.H0 > 0 and self.Wmag != self.W0:
+        if self.H0 > 0 and self.W1 != self.W0:
             curve_list.append(Arc1(Z2, ZM1, Rbo - self.H0, is_trigo_direction=True))
             curve_list.append(Arc1(ZM1, ZM4, Rbo - self.H0, is_trigo_direction=True))
             curve_list.append(Arc1(ZM4, Z3, Rbo - self.H0, is_trigo_direction=True))
@@ -61,7 +61,7 @@ def build_geometry(self):
 
     # Left side of slot
     if self.H0 > 0:
-        if self.Wmag == self.W0 and self.Hmag < self.H0:
+        if self.W1 == self.W0 and self.H1 < self.H0:
             curve_list.append(Segment(Z3, ZM3))
             curve_list.append(Segment(ZM3, Z4))
         else:
